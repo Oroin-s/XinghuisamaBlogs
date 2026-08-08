@@ -1,8 +1,10 @@
 // app/api/weather/route.ts
 import { NextResponse } from 'next/server';
+import { getRuntimeConfig } from '../../../lib/runtime-config';
 
 export async function GET() {
-  const token = process.env.QWEATHER_KEY;
+  const rc = getRuntimeConfig();
+  const token = rc.qweatherKey;
   const locationId = "101010100"; // 北京
 
   if (!token) {

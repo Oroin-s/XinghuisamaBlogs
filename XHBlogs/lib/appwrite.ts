@@ -1,6 +1,6 @@
 // lib/appwrite.ts - Appwrite Storage 存储桶集成模块
 //
-// 环境变量说明（在 Cloudflare 后台 / wrangler 中配置）：
+// 配置来源优先级：环境变量 > 部署包内 site-env.json（见 lib/runtime-config.ts）
 //   APPWRITE_ENDPOINT  例: https://cloud.appwrite.io/v1
 //   APPWRITE_PROJECT_ID      你的 Appwrite 项目 ID
 //   APPWRITE_BUCKET_ID       你的存储桶 ID
@@ -9,11 +9,15 @@
 // 公开直链格式（图片无需鉴权即可访问）：
 //   {endpoint}/storage/buckets/{bucketId}/files/{fileId}/view?project={projectId}
 
+import { getRuntimeConfig } from "./runtime-config";
+
+const rc = getRuntimeConfig();
+
 export const appwriteConfig = {
-  endpoint: process.env.APPWRITE_ENDPOINT || "https://cloud.appwrite.io/v1",
-  projectId: process.env.APPWRITE_PROJECT_ID || "",
-  bucketId: process.env.APPWRITE_BUCKET_ID || "",
-  apiKey: process.env.APPWRITE_API_KEY || "",
+  endpoint: rc.appwriteEndpoint,
+  projectId: rc.appwriteProjectId,
+  bucketId: rc.appwriteBucketId,
+  apiKey: rc.appwriteApiKey,
 };
 
 /** 是否已配置 Appwrite 存储桶 */

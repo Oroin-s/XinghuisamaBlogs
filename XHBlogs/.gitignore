@@ -42,3 +42,4 @@ next-env.d.ts
 
 # OpenNext / Cloudflare
 .open-next/
+site-env.json
