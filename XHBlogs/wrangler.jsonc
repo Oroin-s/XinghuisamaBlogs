@@ -1,0 +1,35 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"main": ".open-next/worker.js",
+	"name": "xinghuisama-blog",
+	"compatibility_date": "2026-08-08",
+	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS"
+	},
+	"services": [
+		{
+			// 自引用 service 绑定 (OpenNext 缓存专用)，service 名必须与 worker 名一致
+			"binding": "WORKER_SELF_REFERENCE",
+			"service": "xinghuisama-blog"
+		}
+	],
+	"r2_buckets": [
+		{
+			// R2 增量缓存桶（自动创建后绑定）
+			"binding": "NEXT_INC_CACHE_R2_BUCKET",
+			"bucket_name": "xinghuisama-blog-opennext-cache"
+		}
+	],
+	"vars": {
+		// Appwrite 存储桶（非机密配置，可放在此处）
+		// 机密值（APPWRITE_API_KEY / GEMINI_API_KEY / QWEATHER_KEY）请用 `wrangler secret put <NAME>` 设置
+		"APPWRITE_ENDPOINT": "https://cloud.appwrite.io/v1",
+		"APPWRITE_PROJECT_ID": "",
+		"APPWRITE_BUCKET_ID": ""
+	},
+	"observability": {
+		"enabled": true
+	}
+}
