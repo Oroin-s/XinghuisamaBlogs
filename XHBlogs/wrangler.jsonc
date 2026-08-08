@@ -16,11 +16,11 @@
 		}
 	],
 	"vars": {
-		// Appwrite 存储桶（非机密配置，可放在此处）
-		// 机密值（APPWRITE_API_KEY / GEMINI_API_KEY / QWEATHER_KEY）请用 `wrangler secret put <NAME>` 设置
-		"APPWRITE_ENDPOINT": "https://cloud.appwrite.io/v1",
-		"APPWRITE_PROJECT_ID": "",
-		"APPWRITE_BUCKET_ID": ""
+		// Appwrite 存储桶（非机密配置）
+		// 机密值（APPWRITE_API_KEY / GEMINI_API_KEY / QWEATHER_KEY）请在 Dashboard 的 secrets 或 `wrangler secret put` 中设置
+		"APPWRITE_ENDPOINT": "https://sgp.cloud.appwrite.io/v1",
+		"APPWRITE_PROJECT_ID": "6a71f41f0026ea0d8883",
+		"APPWRITE_BUCKET_ID": "6a7284f30026de941d80"
 	},
 	"observability": {
 		"enabled": true
