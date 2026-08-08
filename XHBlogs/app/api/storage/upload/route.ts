@@ -1,7 +1,7 @@
 // app/api/storage/upload/route.ts
 // 将图片上传到 Appwrite 存储桶，返回公开直链
 import { NextResponse } from "next/server";
-import { appwriteConfig } from "../../../lib/appwrite";
+import { appwriteConfig } from "../../../../lib/appwrite";
 
 export const runtime = "edge";
 
