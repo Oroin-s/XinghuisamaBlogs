@@ -15,13 +15,6 @@
 			"service": "xinghuisama-blog"
 		}
 	],
-	"r2_buckets": [
-		{
-			// R2 增量缓存桶（自动创建后绑定）
-			"binding": "NEXT_INC_CACHE_R2_BUCKET",
-			"bucket_name": "xinghuisama-blog-opennext-cache"
-		}
-	],
 	"vars": {
 		// Appwrite 存储桶（非机密配置，可放在此处）
 		// 机密值（APPWRITE_API_KEY / GEMINI_API_KEY / QWEATHER_KEY）请用 `wrangler secret put <NAME>` 设置
