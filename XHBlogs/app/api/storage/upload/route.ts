@@ -3,8 +3,7 @@
 import { NextResponse } from "next/server";
 import { appwriteConfig } from "../../../../lib/appwrite";
 
-export const runtime = "edge";
-
+// Node runtime（Cloudflare Workers 启用 nodejs_compat；Edge 不支持 node:fs/path）
 export async function POST(req: Request) {
   if (!appwriteConfig.apiKey || !appwriteConfig.projectId || !appwriteConfig.bucketId) {
     return NextResponse.json(
